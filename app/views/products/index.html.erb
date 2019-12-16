@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Alexx shop</h1>
+<ul>Список товаров:</ul>
+    <% @products.each do |product| %>
+      <li>
+        Тайтл: <%= product.title %>, категория: <%= product.category.title %>,
+        дескриптор: <%= product.description %>, цена: <%= product.price %> грн.
+      </li>
+    <% end %>
+</div>
