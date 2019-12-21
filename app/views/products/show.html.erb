@@ -1,4 +1,6 @@
-<div class="card">
-  Тайтл: <%= product.title %>, категория: <%= product.category.title %>,
-  дескриптор: <%= product.description %>, цена: <%= product.price %> грн.
-</div>
+<p>название: <%= @product.title %>,</p>
+<p>категория: <%= @product.category.title %>,</p>
+<p>дескриптор: <%= @product.description %>,</p>
+<p>цена: <%= @product.price %> грн.</p>
+<button type="button" class="btn btn-outline-primary">Купить</button><br>
+
