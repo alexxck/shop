@@ -1,3 +1,71 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+  background: #ececec;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+.content{
+  margin-top: 50px;
+}
+.product {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #c0c0c0;
+  height: 390px;
+  overflow: hidden;
+  padding: 25px 15px;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+  margin-bottom: 20px;
+}
+.product:hover {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+.product-img {
+  height: 200px;
+}
+.product-title a {
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.product-desc {
+  max-height: 60px;
+  overflow: hidden;
+}
+.product-price {
+  bottom: 15px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  color: #d51e08;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+.product-img {
+  height: 200px;
+}
+
+.product-desc {
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.product-price {
+  bottom: 15px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  color: #d51e08;
+  font-size: 18px;
+  font-weight: 500;
+}

@@ -1,10 +1,32 @@
-<div class="container">
-  <h1>Alexx shop</h1>
-<ul>Список товаров:</ul>
-    <% @products.each do |product| %>
-      <li>
-        Тайтл: <%= product.title %>, категория: <%= product.category.title %>,
-        дескриптор: <%= product.description %>, цена: <%= product.price %> грн.
-      </li>
-    <% end %>
+<div class="container content">
+  <div class="row">
+    <div class="col-md">
+      <div class="list-group">
+        <a href="#" class="list-group-item">Книги</a>
+        <a href="#" class="list-group-item">Комиксы</a>
+        <a href="#" class="list-group-item">Манга</a>
+      </div>
+    </div>
+    <div class="col-md-10">
+        <div class="col-md products">
+          <div class="row">
+            <% @products.each do |product| %>
+            <div class="col-sm-4">
+              <div class="product">
+                <div class="product-img">
+                  <a href="#"><img src="img/goods1.jpg" alt=""></a>
+                </div>
+                <p class="product-title">
+                  <a href="#">Тайтл: <%= product.title %></a>
+                </p>
+                <p class="product-desc">описание: <%= product.description %></p>
+                <p class="product-cate">категория: <%= product.category.title %></p>
+                <p class="product-price">цена: <%= product.price %> грн.</p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
