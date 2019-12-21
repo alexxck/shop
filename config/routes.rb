@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
   root to: 'products#index'
@@ -8,5 +10,3 @@ Rails.application.routes.draw do
     resources :products, controller: 'backoffice/products'
   end
 end
-
-

@@ -7,35 +7,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#Category.destroy_all
+# Category.destroy_all
 categories = Category.create([{ title: 'Book' }, { title: 'Magazine' }, { title: 'Manga' }])
 
-#Product.destroy_all
+# Product.destroy_all
 
- 10.times do |x|
-   Product.create(
-       title: "Book title #{ +x }",
-       description: "Books descr #{ +x }",
-       price: rand(1..100),
-       category_id: 1 )
- end
+10.times do |x|
+  Product.create(
+    title: "Book title #{+x}",
+    description: "Books descr #{+x}",
+    price: rand(1..100),
+    category_id: 1
+  )
+end
 
- 10.times do |x|
-   Product.create(
-       title: "Magazine title #{ +x }",
-       description: "Magazine descr #{ +x }",
-       price: rand(1..77),
-       category_id: 2 )
- end
+10.times do |x|
+  Product.create(
+    title: "Magazine title #{+x}",
+    description: "Magazine descr #{+x}",
+    price: rand(1..77),
+    category_id: 2
+  )
+end
 
- 10.times do |x|
-   Product.create(
-       title: "Manga title #{ +x }",
-       description: "Manga descr #{ +x }",
-       price: rand(1..20),
-       category_id: 3 )
- end
+10.times do |x|
+  Product.create(
+    title: "Manga title #{+x}",
+    description: "Manga descr #{+x}",
+    price: rand(1..20),
+    category_id: 3
+  )
+end
 
-
- p "Created #{Category.count} categories entries."
- p "Created #{Product.count} products entries."
+p "Created #{Category.count} categories entries."
+p "Created #{Product.count} products entries."
