@@ -8,10 +8,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Category.destroy_all
-categories = Category.create([{ title: 'Book' }, { title: 'Magazine' }, { title: 'Manga' }])
+# categories = Category.create([{ title: 'Book' }, { title: 'Magazine' }, { title: 'Manga' }])
 
 # Product.destroy_all
-
+=begin
 10.times do |x|
   Product.create(
     title: "Book title #{+x}",
@@ -38,6 +38,13 @@ end
     category_id: 3
   )
 end
+=end
+# p "Created #{Category.count} categories entries."
+# p "Created #{Product.count} products entries."
 
-p "Created #{Category.count} categories entries."
-p "Created #{Product.count} products entries."
+if User.find_by(email: 'admin@example.com').nil?
+  User.create([email: 'admin@example.com', password: 'Password1', admin: true])
+  p "Admin created: #{User.count}"
+else
+  p 'User already exist'
+end
