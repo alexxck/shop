@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Регистрация</h1>
+  <%= simple_form_for(@user, html: { class: 'form-group' }) do |form| %>
+    <% if user.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.input :email %>
+    <%= form.input :password %>
+    <%= form.input :password_confirmation %>
+    <%= form.button :submit, class: 'btn btn-success' %>
+  <% end %>
+</div>
