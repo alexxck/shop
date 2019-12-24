@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[show]
+
   def index
     @products = Product.order(:created_at).page(params[:page])
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
   def show
     @product = Product.find(params[:id])
-    respond_to do |format|
-      format.html
-    end
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:title, :description, :category_id)
   end
 end

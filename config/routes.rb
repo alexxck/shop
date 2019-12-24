@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-  scope :admin do
-    resources :categories, controller: 'backoffice/categories'
-    resources :products, controller: 'backoffice/products'
+  scope '/admin' do
+    resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
+    resources :products, controller: 'backoffice/products', as: 'admin_products'
   end
 
   get 'registration', to: 'users#new', as: 'registration'

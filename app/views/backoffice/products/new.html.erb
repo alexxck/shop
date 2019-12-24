@@ -1,11 +1,4 @@
 <div class="container">
-<h1>Создать продукт</h1>
-<%= simple_form_for(@product, html: { class: 'form-group' }) do |form| %>
-
-  <%= form.input :title %>
-  <%= form.input :category, :collection => %w[Book Comics Manga] %>
-  <%= form.input :description %>
-  <%= form.input :price %>
-  <%= form.button :submit, class: 'btn btn-success' %>
-<% end %>
+  <h1>Создать продукт</h1>
+  <%= render 'form', product: @product %>
 </div>
