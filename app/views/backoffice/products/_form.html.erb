@@ -32,8 +32,14 @@
       <%= form.text_field :price, class: "form-control", type: "number"%>
     </div>
     <br>
+    <div class="field">
+      <%= form.file_field :images, :html =>  { :multipart => true }, multiple: true%>
+    </div>
+    <br>
     <div class="text-center actions">
       <%= form.submit 'Submit', class: "btn btn-success" %>
     </div>
   <% end %>
 </div>
+
+<%= link_to 'Back', root_path, class: 'btn btn-secondary' %>
