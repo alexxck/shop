@@ -1,5 +1,9 @@
 <p>название: <%= @product.title %>,</p>
-<p><%= image_tag @product.images, class: "img-show" %></p>
+<p>
+  <% @product.images.each do |image| %>
+    <%= image_tag(image.url(:medium)) %>
+  <% end %>
+</p>
 <p>категория: <%= @product.category.title %>,</p>
 <p>дескриптор: <%= @product.description %>,</p>
 <p>цена: <%= @product.price %> грн.</p>
