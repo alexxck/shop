@@ -1,7 +1,7 @@
 <p>название: <%= @product.title %>,</p>
 <p>
   <% @product.images.each do |image| %>
-    <%= image_tag(image.url(:medium)) %>
+    <%= image_tag(image.url(:medium), class: "mx-auto d-block") %>
   <% end %>
 </p>
 <p>категория: <%= @product.category.title %>,</p>

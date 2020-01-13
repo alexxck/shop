@@ -6,7 +6,10 @@
     <a class="navbar-brand" href="#">Alexx backoffice</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to 'Home', root_path, :class => "btn btn-info nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Categories' , admin_categories_path, :class => "btn btn-info nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
