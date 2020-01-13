@@ -1,11 +1,13 @@
-<p>название: <%= @product.title %>,</p>
+<div class="container">
+  <p class="text-center">Title: <%= @product.title %>,</p>
 <p>
   <% @product.images.each do |image| %>
     <%= image_tag(image.url(:medium), class: "mx-auto d-block") %>
   <% end %>
 </p>
-<p>категория: <%= @product.category.title %>,</p>
-<p>дескриптор: <%= @product.description %>,</p>
-<p>цена: <%= @product.price %> грн.</p>
+<p class="text-center">Category: <%= @product.category.title %></p>
+<p class="text-center">Description: <%= @product.description %></p>
+<p class="text-center">Price: <%= @product.price %> UAH </p>
 <%= link_to 'Edit', edit_admin_product_path(@product), class: "btn btn-warning" %>
 <%= link_to 'Delete', admin_product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+</div>
