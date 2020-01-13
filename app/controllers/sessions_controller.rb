@@ -7,15 +7,17 @@ class SessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(root_path, notice: 'Login successful')
+      redirect_back_or_to root_path
+      flash[:success] = 'Logged in!'
     else
-      flash.now[:alert] = 'Login failed'
+      flash.now[:danger] = 'Invalid email or password'
       render action: 'new'
     end
   end
 
   def destroy
     logout
-    redirect_to(:products, notice: 'Logged out!')
+    redirect_to root_path
+    flash[:warning] = 'Logged out!'
   end
 end
