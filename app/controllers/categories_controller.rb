@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @products = Product.all
+    @categories = Category.all
   end
 
   private

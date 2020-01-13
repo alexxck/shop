@@ -5,7 +5,12 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
   before_action :check_admin
 
   def index
-    @products = Product.order(:created_at).page(params[:page])
+    # @products = Product.order(:created_at).page(params[:page])
+    @products = if params[:search]
+                  Product.search(params[:search]).paginate(page: params[:page], per_page: 9)
+                else
+                  Product.order(:created_at).page(params[:page])
+                end
   end
 
   def show
