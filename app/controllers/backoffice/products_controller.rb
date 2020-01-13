@@ -2,7 +2,7 @@
 
 class Backoffice::ProductsController < Backoffice::BackofficeController
   before_action :set_product, only: %i[show edit update destroy]
-  before_action :check_admin
+  before_action :admin?
 
   def index
     # @products = Product.order(:created_at).page(params[:page])
@@ -25,7 +25,8 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
     @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, url: admin_products_path, notice: 'Product was successfully created.' }
+        flash[:success] = 'Product was successfully created.'
+        format.html { redirect_to admin_product_path(@product)}
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -53,8 +54,10 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
     end
   end
 
-  def check_admin
-    redirect_to root_path unless current_user&.admin
+  def admin?
+    unless current_user&.admin
+      redirect_to root_path
+    end
   end
 
   private

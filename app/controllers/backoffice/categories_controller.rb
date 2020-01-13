@@ -2,7 +2,7 @@
 
 class Backoffice::CategoriesController < Backoffice::BackofficeController
   before_action :set_category, only: %i[show edit update destroy]
-  before_action :check_admin
+  before_action :admin?
 
   def index
     @categories = Category.order(:title)
@@ -52,7 +52,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
     end
   end
 
-  def check_admin
+  def admin?
     unless current_user&.admin
       redirect_to root_path
     end
