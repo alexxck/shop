@@ -33,23 +33,35 @@
     </div>
     <br>
     <div class="field">
-      <%= form.file_field :images, :html =>  { :multipart => true }, multiple: true, class: "file" %>
+      <%= form.file_field :images, :html =>  { :multipart => true }, multiple: true, class: "file" unless @product.save %>
     </div>
     <br>
-    <% @product.images.each_with_index do |image, index| %>
-      <%= image_tag(image.url(:thumb), class: "mx-auto d-block")%>
-      <div class="text-center">
-        <%= link_to "Delete", product_image_path(@product, index), :method => :delete, data: { confirm: "Delete this image?" }, class:
-            "text-center" %>
-      </div>
-      <div class="upload-preview">
-        <img />
-      </div>
-    <% end %>
+    <div class="row">
+      <% @product.images.each_with_index do |image, index| %>
+        <div class="col">
+          <%= image_tag(image.url(:thumb), class: "rounded mx-auto d-block product-image")%>
+          <div class="text-center">
+            <%= link_to 'Delete', product_image_path(@product, index),
+                        :method => :delete, data: { confirm: "Delete this image?"}, class: "btn btn-outline-danger"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <br>
     <div class="text-center actions">
-      <%= form.submit 'Submit', class: "btn btn-success" %>
+      <%= form.submit 'Submit', class: "btn btn-dark" %>
     </div>
   <% end %>
+</div>
+<div>
+  <% if @product.save %>
+    <h3>Add to already existed images</h3>
+    <%= form_for @product, url: product_images_path(@product), method: :post do |f|  %>
+      <%= f.file_field :images, multiple: true %>
+      <%= f.submit "Add More Images", class: 'btn btn-outline-primary ' %>
+    <% end %>
+  <% end %>
+</div>
   <script>
       document.querySelector('.file').addEventListener('change', event => {
           [...event.target.files].forEach(file => {
