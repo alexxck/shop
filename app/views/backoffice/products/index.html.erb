@@ -15,7 +15,13 @@
               <div class="product">
                 <p class="product-title">Тайтл: <%= product.title %></p>
                 <div class="product-img">
-                  <a href="#"><img src="img/goods1.jpg" alt="тут будет картинка"></a>
+                  <%= link_to product do %>
+                    <% if product.images?  %>
+                      <%= image_tag(product.images.first.url(:thumb))%>
+                    <% else %>
+                      <%= image_tag("https://images-na.ssl-images-amazon.com/images/I/41mVTCm%2Bg-L._AC_UL160_.jpg")%>
+                    <% end  %>
+                  <% end %>
                 </div>
                 <p class="product-desc">описание: <%= product.description %></p>
                 <p class="product-cate">категория: <%= product.category.title %></p>

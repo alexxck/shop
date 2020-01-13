@@ -1,7 +1,10 @@
 <p>название: <%= @product.title %>,</p>
-<p><%= image_tag @product.images, class: "img-show" if @product.images? %></p>
+<p>
+  <% @product.images.each do |image| %>
+    <%= image_tag(image.url(:medium)) %>
+  <% end %>
+</p>
 <p>категория: <%= @product.category.title %>,</p>
 <p>дескриптор: <%= @product.description %>,</p>
 <p>цена: <%= @product.price %> грн.</p>
 <button type="button" class="btn btn-outline-primary">Купить</button><br>
-
