@@ -6,6 +6,18 @@
         <a href="#" class="list-group-item">Комиксы</a>
         <a href="#" class="list-group-item">Манга</a>
       </div>
+      <%= link_to "Random Products", product_path(@random_product), class: "btn btn-outline-primary" %>
+      <div class="dropdown pull-right">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Sort
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Expensive", products_path(sort: 'expensive'), class: "dropdown-item" %>
+          <%= link_to "Cheapest", products_path(sort: 'cheapest'), class: "dropdown-item" %>
+          <%= link_to "Newest", products_path(sort: 'newest'), class: "dropdown-item" %>
+          <%= link_to "Oldest", products_path(sort: 'oldest'), class: "dropdown-item" %>
+        </div>
+      </div>
     </div>
     <div class="col-md-10">
         <div class="col-md products">
