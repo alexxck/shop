@@ -7,17 +7,17 @@ class ProductsController < ApplicationController
     # @products = Product.order(:created_at).page(params[:page])
 
     @products = if params[:search]
-                  Product.search(params[:search]).call(page: params[:page])
+                  Product.search(params[:search]).paginate(page: params[:page], per_page: 6)
                 elsif params[:sort] == 'cheapest'
-                  Product.cheapest.call(page: params[:page])
+                  Product.cheapest.paginate(page: params[:page], per_page: 6)
                 elsif params[:sort] == 'expensive'
-                  Product.expensive.call(page: params[:page])
+                  Product.expensive.paginate(page: params[:page], per_page: 6)
                 elsif params[:sort] == 'newest'
-                  Product.expensive.call(page: params[:page])
-                elsif params[:sort] == 'oldest'
-                  Product.expensive.call(page: params[:page])
+                  Product.expensive.paginate(page: params[:page], per_page: 6)
+                elsif params[:sort] == 'oldestgit status'
+                  Product.expensive.paginate(page: params[:page], per_page: 6)
                 else
-                  Product.order(:created_at).page(params[:page])
+                  Product.all.paginate(page: params[:page], per_page: 6)
                 end
     @random_product = @products.sample
   end
