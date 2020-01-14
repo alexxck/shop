@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   def new
     @user = User.new
@@ -24,9 +26,8 @@ class SessionsController < ApplicationController
   end
 
   private
+
   def admin?
-    unless current_user&.admin
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user&.admin
   end
 end

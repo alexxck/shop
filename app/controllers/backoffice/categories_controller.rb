@@ -14,9 +14,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
     @category = Category.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @category = Category.new(category_params)
@@ -53,9 +51,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
   end
 
   def admin?
-    unless current_user&.admin
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user&.admin
   end
 
   private

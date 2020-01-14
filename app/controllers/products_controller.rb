@@ -9,13 +9,13 @@ class ProductsController < ApplicationController
     @products = if params[:search]
                   Product.search(params[:search]).call(page: params[:page])
                 elsif params[:sort] == 'cheapest'
-                  Product.all.cheapest.call(page: params[:page])
+                  Product.cheapest.call(page: params[:page])
                 elsif params[:sort] == 'expensive'
-                  Product.all.expensive.call(page: params[:page])
+                  Product.expensive.call(page: params[:page])
                 elsif params[:sort] == 'newest'
-                  Product.all.expensive.call(page: params[:page])
+                  Product.expensive.call(page: params[:page])
                 elsif params[:sort] == 'oldest'
-                  Product.all.expensive.call(page: params[:page])
+                  Product.expensive.call(page: params[:page])
                 else
                   Product.order(:created_at).page(params[:page])
                 end

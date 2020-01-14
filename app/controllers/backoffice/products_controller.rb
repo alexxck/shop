@@ -26,7 +26,7 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
     respond_to do |format|
       if @product.save
         flash[:success] = 'Product was successfully created.'
-        format.html { redirect_to admin_product_path(@product)}
+        format.html { redirect_to admin_product_path(@product) }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -55,9 +55,7 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
   end
 
   def admin?
-    unless current_user&.admin
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user&.admin
   end
 
   private
@@ -67,6 +65,6 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :category_id, :price, {images: []})
+    params.require(:product).permit(:title, :description, :category_id, :price, images: [])
   end
 end
