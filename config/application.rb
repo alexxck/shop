@@ -17,5 +17,7 @@ module Shop
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.I18n.default_locale = :en
+    I18n.locale = :ru
   end
 end
